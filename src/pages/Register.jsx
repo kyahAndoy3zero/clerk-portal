@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Link, useNavigate} from 'react-router-dom'
-import {registerStudent, reset } from '../feature/auth/authSlice'
+import {registerClerk, reset } from '../feature/auth/authSlice'
 
 const Register = () => {
 
@@ -53,7 +53,7 @@ const Register = () => {
               email,
               password
             }
-            dispatch(registerStudent(userData))
+            dispatch(registerClerk(userData))
           }
         
         }
@@ -71,7 +71,7 @@ const Register = () => {
               <div className="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow-md sm:p-8 lg:p-10 dark:bg-gray-800 dark:border-gray-700">
                     
                     <form onSubmit={onSubmit} className="space-y-6 ">
-                    <h3 className="text-xl font-medium text-gray-900 dark:text-white">Register Student</h3>
+                    <h3 className="text-xl font-medium text-gray-900 dark:text-white">Register Clerk</h3>
                     <div>
                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Full Name</label>
                         <input type="text" name="name" id="name" value={name} onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Ex. Juan Dela Cruz" required=""/>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {loginStudent, reset} from '../feature/auth/authSlice'
+import {loginClerk, reset} from '../feature/auth/authSlice'
 import { useSelector, useDispatch } from 'react-redux';
 
 const Login = () => {
@@ -44,7 +44,7 @@ const Login = () => {
       password
     }
    
-    dispatch(loginStudent(userData))
+    dispatch(loginClerk(userData))
   }
 
   if(isLoading){
@@ -58,7 +58,7 @@ const Login = () => {
                 <div className="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow-md sm:p-8 lg:p-10 dark:bg-gray-800 dark:border-gray-700">
                     
                     <form onSubmit={onSubmit} className="space-y-6 ">
-                    <h3 className="text-xl font-medium text-gray-900 dark:text-white">Login Student</h3>
+                    <h3 className="text-xl font-medium text-gray-900 dark:text-white">Clerk Portal</h3>
                    
                     <div>
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>

@@ -11,7 +11,7 @@ const initialState = {
     message: ''
 }
 
-export const registerStudent = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
+export const registerClerk = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
     try{
         return await authService.register(userData)
     }catch(error){
@@ -21,7 +21,7 @@ export const registerStudent = createAsyncThunk('auth/register', async (userData
 })
 
 
-export const loginStudent = createAsyncThunk('auth/login', async (user, thunkAPI) => {
+export const loginClerk = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     try{
         return await authService.login(user)
     }catch(error){
@@ -42,29 +42,29 @@ export const authSlice = createSlice({
 
     extraReducers: (builder) =>{
         builder
-            .addCase(registerStudent.pending, (state) =>{
+            .addCase(registerClerk.pending, (state) =>{
                 state.isLoading = true
             })
-            .addCase(registerStudent.fulfilled, (state, action) =>{
+            .addCase(registerClerk.fulfilled, (state, action) =>{
                 state.isLoading = false
                 state.isSuccess = true
                 state.user = action.payload
             })
-            .addCase(registerStudent.rejected, (state, action) => {
+            .addCase(registerClerk.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload 
                 state.user = null
             })
-            .addCase(loginStudent.pending, (state) => {
+            .addCase(loginClerk.pending, (state) => {
                 state.isLoading = true
             })
-            .addCase(loginStudent.fulfilled, (state, action) => {
+            .addCase(loginClerk.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = true
                 state.user = action.payload
             })
-            .addCase(loginStudent.rejected, (state, action) => {
+            .addCase(loginClerk.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload

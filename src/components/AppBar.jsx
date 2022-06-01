@@ -1,17 +1,18 @@
 import React from 'react'
 import Menu from './Menu'
 // import CreateProfile from './CreateProfile/CreateProfile'
+import { useSelector } from 'react-redux'
 import { ModalContext } from '../Modal/ModalContext/ModalContext'
 
 const AppBar = () => {
     let {handleModal} = React.useContext(ModalContext)
-
+    const { user } = useSelector((state) => state.auth)
     return (
         <>
         
             <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
-            <h1 className='text-xl font-medium text-gray-900 dark:text-white'>Hi</h1>
+            <h1 className='text-xl font-medium text-gray-900 dark:text-white'>{user.name}</h1>
                     <div className="flex md:order-2">
                         <button type="button"  className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-3" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
