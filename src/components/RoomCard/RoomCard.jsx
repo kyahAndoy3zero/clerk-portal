@@ -1,5 +1,8 @@
 import React from 'react'
+import CreateProfile from '../CreateProfile/CreateProfile'
+import { ModalContext } from '../../Modal/ModalContext/ModalContext'
 const RoomCard = ({room}) => {
+  let {handleModal} = React.useContext(ModalContext)
 
   return (
     <>
@@ -12,16 +15,17 @@ const RoomCard = ({room}) => {
                   <h2 className='font-semibold text-gray-600 text-md'>{room.name}</h2>
                   </div>
                   <div>
-                    <button type="button" className="inline-flex items-center p-1 ml-auto text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>  
+                    <button onClick={() => handleModal(<CreateProfile roomID={room._id}/>)} type="button" className="inline-flex items-center p-1 ml-auto text-sm text-gray-400 bg-transparent rounded-full hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                      </svg>
                     </button>
                   </div>
             </div>
         </div>
-             
-      
     </>
   )
 }
 
 export default RoomCard
+

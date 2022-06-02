@@ -3,8 +3,9 @@ import { useState } from "react";
 import { ModalContext } from '../../Modal/ModalContext/ModalContext'
 import Filebase64 from 'react-file-base64'
 import { useDispatch } from 'react-redux';
+import { createProfile, reset } from '../../feature/profile/profileSlice';
 
-const CreateProfile = () => {
+const CreateProfile = ({roomID}) => {
 
   
   let {handleModal} = React.useContext(ModalContext)
@@ -13,11 +14,10 @@ const CreateProfile = () => {
   const [proData, setData] = useState({
     name: '',
     id_number: '',
-    roomID: '',
     image: ''
   })
 
-  const {name, id_number, image, roomID} = proData
+  const {name, id_number, image} = proData
 
   const onChange = (e) => {
     setData((prevState) => ({
@@ -34,10 +34,10 @@ const CreateProfile = () => {
       name,
       id_number,
       image,
-      roomID,
+      roomID
     }
-
-
+    
+    dispatch(createProfile(profileData))
     handleModal()
   }
 
@@ -59,10 +59,7 @@ const CreateProfile = () => {
               <label htmlFor="id_number" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">ID Number</label>
               <input type="number" name="id_number" value={id_number} id="id_number" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="181295" required=""/>
             </div> 
-            <div>
-              <label htmlFor="roomID" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Room ID</label>
-              <input type="text" name="roomID" id="roomID" value={roomID} onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="627e10b33fdbbab86a64840f" required=""/>
-            </div>
+       
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Upload Image</label>
               <Filebase64 multiple={ false }  onDone={({base64}) => setData({...proData, image: base64})} className='text-sm font-medium text-white'/>
