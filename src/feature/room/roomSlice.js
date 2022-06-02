@@ -21,6 +21,8 @@ export const getAllRooms = createAsyncThunk('rooms/getAll', async(_, thunkAPI) =
 })
 
 
+
+
 export const roomSlice = createSlice({
     name: 'rooms',
     initialState,
