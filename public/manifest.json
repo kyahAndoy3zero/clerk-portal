@@ -1,6 +1,7 @@
 {
     "short_name": "Facial Recognition Attendance System",
     "name": "Facial Recognition Attendance System",
+
     "icons": [
 
         {
@@ -30,7 +31,7 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": ".",
+    "start_url": "https://faceclerkapp.herokuapp.com/",
     "display": "standalone",
     "theme_color": "#ffffff",
     "background_color": "#ffffff"
