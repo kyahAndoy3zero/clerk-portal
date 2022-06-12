@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-
-const API_URL =  '/api/profile/'
+const REMOTE_URL = `https://backend-faceapp.herokuapp.com`
+const API_URL =  `${REMOTE_URL}/api/profile/`
 
 
 const createProfile = async(roomData, roomID, token) => {
